@@ -1,0 +1,30 @@
+TH simple_shell 1 "December 2023" "Version 1.0" "Simple Shell Manual"
+SH NAME
+simple_shell - Description de votre shell
+
+SH SYNOPSIS
+simple_shell [option] [command]
+
+SH DESCRIPTION
+Une description détaillée de votre shell et de ses fonctionnalités.
+
+SH OPTIONS
+Liste des options disponibles et de leur fonctionnement.
+
+SH COMMANDS
+Liste des commandes spécifiques à votre shell et de leur utilisation.
+
+SH EXAMPLES
+Quelques exemples d'utilisation de votre shell.
+
+SH AUTHORS
+Liste des contributeurs au projet.
+
+SH SEE ALSO
+Liens vers d'autres ressources ou projets connexes.
+
+SH BUGS
+Liste connue de bugs et problèmes.
+
+SH COPYRIGHT
+Droits d'auteur et informations de licence.

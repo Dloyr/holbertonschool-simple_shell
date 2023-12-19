@@ -9,4 +9,5 @@
 #include <string.h>
 #include <ctype.h>
 
-#endif /* MAIN_H */
+char *getpath (char *input);
+#endif
