@@ -1,20 +1,6 @@
 #include "main.h"
 
 /**
-* cleanup - free the memory
-* @line: store user input
-* @array: store tokens
-* @full_path: store full path of command
-*/
-
-void cleanup(char *line, char **array, char *full_path)
-{
-	free(line);
-	free(array);
-	free(full_path);
-}
-
-/**
 * main - Shell
 * @argc: Number of arguments
 * @argv: Arguments
@@ -52,11 +38,9 @@ int main(int argc, char **argv)
 
 		if (strcmp(line, "exit\n") == 0)
 		{
-			cleanup(line, array, full_path);
 			return (0);
 		}
 		handle_input(line, array, full_path);
 	}
-	cleanup(line, array, full_path);
 	return (index);
 	}

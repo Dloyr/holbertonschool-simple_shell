@@ -11,10 +11,8 @@ int tokenize_input(char *line, char **array)
 {
 	char *token;
 	int index = 0;
-	int i;
 
 	token = strtok(line, " \n");
-
 	/* store tokens in array */
 	while (token != NULL)
 	{
@@ -22,15 +20,10 @@ int tokenize_input(char *line, char **array)
 		if (array[index] == NULL)
 		{
 			perror("strdup");
-			for (i = 0; i < index; i++)
-			{
-				free(array[i]);
-			}
 			exit(EXIT_FAILURE);
 		}
 		token = strtok(NULL, " \n");
 		index++;
 	}
-	/* free(line); */
 	return (index);
 }

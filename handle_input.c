@@ -33,9 +33,6 @@ int handle_input(char *line, char **array, char *full_path)
 		if (execute_command(full_path, array) != 0)
 		{
 			perror("can't execute");
-			/* free(line); */
-			free(array);
-			free(full_path);
 		}
 
 	return (index);
