@@ -9,6 +9,7 @@
 char *getpath(char *input)
 {
 	char *Path, *Path_copy, *token, full_path[1024], *result;
+
 	Path = getenv("PATH");
 
 	if (Path == NULL)
