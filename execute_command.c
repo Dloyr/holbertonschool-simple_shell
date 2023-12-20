@@ -12,21 +12,28 @@ int execute_command(char *full_path, char **array)
 	pid_t my_pid;
 	int status;
 
-	my_pid = fork();
-
 	if (full_path == NULL)
 	{
 		perror("strdup");
 		return (1);
 	}
 
+	my_pid = fork();
+
 	if (my_pid == 0)
 	{
 		/* child process, execute command */
-		execve(full_path, array, NULL);
-		perror("execve");
-		free(full_path);
-		return (1);
+		/* execve(full_path, array, NULL);
+		* perror("execve");
+		* free(full_path);
+		return (1); */
+		if (execve(full_path, array, NULL) == -1)
+		{
+			perror("execve");
+			/* free(full_path);
+			return (1); */
+		}
+		exit(1);
 	}
 	else if (my_pid == -1)
 	{
@@ -38,7 +45,7 @@ int execute_command(char *full_path, char **array)
 	{
 		/* parent process, wait for child to finish */
 		wait(&status);
-		free(full_path);
-		return (0);
 	}
+	free(full_path);
+	return (0);
 }
