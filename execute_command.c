@@ -14,11 +14,18 @@ int execute_command(char *full_path, char **array)
 
 	my_pid = fork();
 
+	if (full_path == NULL)
+	{
+		perror("strdup");
+		return (1);
+	}
+
 	if (my_pid == 0)
 	{
 		/* child process, execute command */
 		execve(full_path, array, NULL);
 		perror("execve");
+		free(full_path);
 		return (1);
 	}
 	else if (my_pid == -1)
@@ -31,6 +38,7 @@ int execute_command(char *full_path, char **array)
 	{
 		/* parent process, wait for child to finish */
 		wait(&status);
+		free(full_path);
 		return (0);
 	}
 }
