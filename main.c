@@ -38,7 +38,9 @@ int main(int argc, char **argv)
 
 	while (1)
 	{
-		printf("$ ");
+		if (isatty(STDIN_FILENO))
+			printf("$ ");
+
 		getline(&line, &len, stdin); /* get user input */
 
 		array = malloc(sizeof(char *) * 1024);
