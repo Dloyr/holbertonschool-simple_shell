@@ -33,9 +33,11 @@ char *getpath(char *input)
 		if (access(full_path, F_OK | X_OK) == 0)
 		{
 			result = strdup(full_path);
+			free(Path_copy);
 			return (result); /* Change return type to result */
 		}
 		token = strtok(NULL, ":");
 	}
+	free(Path_copy);
 	return (NULL); /* Change return type to NULL */
 }
