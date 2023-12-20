@@ -13,7 +13,6 @@
 char *getpath(char *input);
 int tokenize_input(char *line, char **array);
 int execute_command(char *full_path, char **array);
-int handle_input(char *line, char **array, char *full_path);
-void cleanup(char *line, char **array, char *full_path);
-
+int handle_input(char *line, char **array, char **full_path);
+void free_memory(char **array, int index);
 #endif
