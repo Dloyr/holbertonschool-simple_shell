@@ -9,7 +9,6 @@
 
 int main(int argc, char **argv)
 {
-
 	int index;
 	char *line = NULL; /* store user input */
 	char **array = NULL; /* store tokens */
@@ -40,7 +39,10 @@ int main(int argc, char **argv)
 		{
 			return (0);
 		}
-		handle_input(line, array, full_path);
+		index = handle_input(line, array, &full_path);
+
+		free_memory(array, index);
 	}
-	return (index);
-	}
+	free(line);
+	return (0);
+}
