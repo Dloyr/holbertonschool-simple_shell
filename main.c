@@ -37,6 +37,8 @@ int main(int argc, char **argv)
 
 		if (strcmp(line, "exit\n") == 0)
 		{
+			free(line);
+			free_memory(array, 0);
 			return (0);
 		}
 		index = handle_input(line, array, &full_path);
