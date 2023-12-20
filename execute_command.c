@@ -38,7 +38,7 @@ int execute_command(char *full_path, char **array)
 	{
 		/* parent process, wait for child to finish */
 		wait(&status);
-		free(full_path);
+
 		return (0);
 	}
 }
