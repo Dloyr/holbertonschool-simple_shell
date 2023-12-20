@@ -10,8 +10,8 @@
 void cleanup(char *line, char **array, char *full_path)
 {
 	free(line);
-	free(full_path);
 	free(array);
+	free(full_path);
 }
 
 /**
@@ -47,13 +47,13 @@ int main(int argc, char **argv)
 		if (array == NULL)
 		{
 			perror("malloc");
-			exit(1);
+			return (1);
 		}
 
 		if (strcmp(line, "exit\n") == 0)
 		{
 			cleanup(line, array, full_path);
-			exit(0);
+			return (0);
 		}
 		handle_input(line, array, full_path);
 	}

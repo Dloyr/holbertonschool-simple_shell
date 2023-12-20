@@ -8,6 +8,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <ctype.h>
+#include <signal.h>
 
 char *getpath(char *input);
 int tokenize_input(char *line, char **array);

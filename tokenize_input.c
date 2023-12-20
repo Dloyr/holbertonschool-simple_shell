@@ -26,6 +26,5 @@ int tokenize_input(char *line, char **array)
 		token = strtok(NULL, " \n");
 		index++;
 	}
-
 	return (index);
 }

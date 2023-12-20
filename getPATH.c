@@ -9,10 +9,15 @@
 char *getpath(char *input)
 {
 	char *Path, *Path_copy, *token, full_path[1024], *result;
-
 	Path = getenv("PATH");
 
+	if (Path == NULL)
+	{
+		perror("getenv");
+		return (NULL); /* Change return type to NULL */
+	}
 	Path_copy = strdup(Path);
+
 	if (Path_copy == NULL)
 	{
 		perror("strdup");
