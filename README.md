@@ -1,3 +1,4 @@
+
 # Holberton School: Simple-Shell 💻
 
 # Description
@@ -96,3 +97,42 @@ You can check memory leaks using the following command :
          --verbose \
          --log-file=valgrind-out.txt \
          ./hsh ``
+
+# Testing the program
+## Interactive mode 
+```
+$ ls
+README.md               free.c                  handle_input.c          hsh.dSYM                main.h
+execute_command.c       getPATH.c               hsh                     main.c                  tokenize_input.c
+```
+
+```
+$ ls -l
+total 144
+-rw-r--r--  1 laetitiabeles  staff   4712 Dec 21 15:15 README.md
+-rw-r--r--  1 laetitiabeles  staff    705 Dec 21 00:47 execute_command.c
+-rw-r--r--  1 laetitiabeles  staff    218 Dec 21 10:59 free.c
+-rw-r--r--  1 laetitiabeles  staff    793 Dec 21 10:59 getPATH.c
+-rw-r--r--  1 laetitiabeles  staff    709 Dec 21 00:47 handle_input.c
+-rwxr-xr-x  1 laetitiabeles  staff  34592 Dec 21 15:18 hsh
+drwxr-xr-x  3 laetitiabeles  staff     96 Dec 20 15:59 hsh.dSYM
+-rw-r--r--  1 laetitiabeles  staff    828 Dec 21 10:59 main.c
+-rw-r--r--  1 laetitiabeles  staff    429 Dec 21 00:47 main.h
+-rw-r--r--  1 laetitiabeles  staff    520 Dec 20 17:31 tokenize_input.c
+```
+
+```
+$ pwd
+/Users/laetitiabeles/holbertonschool-simple_shell
+```
+
+```
+$ /bin/ls
+README.md               free.c                  handle_input.c          hsh.dSYM                main.h
+execute_command.c       getPATH.c               hsh                     main.c                  tokenize_input.c
+```
+
+```
+$ exit
+laetitiabeles@Air-de-Laetitia holbertonschool-simple_shell % 
+```
