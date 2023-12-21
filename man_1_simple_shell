@@ -40,7 +40,7 @@ the Simple Shell works by taking user input on the terminal after pressing the e
 .I To install:
 .br
 
-.B git clone (add github link)
+.B git clone (git@github.com:Dloyr/holbertonschool-simple_shell.git)
 .br
 
 .B - Non-interactive mode:
@@ -125,11 +125,11 @@ All builtins return 0 on success and 1 or 2 on failure (indicated by a correspon
 The non interactive mode returns a segmentation fault or a infinite loop according to the system using.
 
 .SH AUTHORS
-Laëtitia Bélès ()
+Laëtitia Bélès (https://github.com/laetitiabeles)
 .br
-Dimitri Loyer ()
+Dimitri Loyer (https://github.com/Dloyr)
 .br
-Yohan Mayot ()
+Yohan Mayot (https://github.com/crackboy974)
 
 .SH LICENSE
 .PP
