@@ -16,6 +16,8 @@ int handle_input(char *line, char **array, char **full_path)
 	if (index < 0)
 	{
 		perror("Failed to tokenize input");
+		free(line);
+		free_memory(array, index);
 		return (-1);
 	}
 
@@ -27,14 +29,18 @@ int handle_input(char *line, char **array, char **full_path)
 	if (*full_path == NULL)
 	{
 		fprintf(stderr, "Command not found: %s\n", array[0]);
+		free(line);
+		free_memory(array, index);
 		return (index);
 	}
 
 	if (execute_command(*full_path, array) != 0)
 	{
+		free(line);
+		free_memory(array, index);
+		free(*full_path);
 		perror("can't execute");
 	}
-	free(*full_path);
 	return (index);
 	}
 

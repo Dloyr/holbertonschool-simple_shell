@@ -32,17 +32,18 @@ int main(int argc, char **argv)
 		if (array == NULL)
 		{
 			perror("malloc");
+			free(line);
 			return (1);
 		}
 
-		if (strcmp(line, "exit\n") == 0)
+		if (_strcmp(line, "exit\n") == 0)
 		{
 			free(line);
 			free_memory(array, 0);
 			return (0);
 		}
 		index = handle_input(line, array, &full_path);
-
+		free(full_path);
 		free_memory(array, index);
 	}
 	free(line);

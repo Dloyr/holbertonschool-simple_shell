@@ -2,11 +2,11 @@
 
 /**
 * getpath - get the path
-* @input: input
+* @line: input
 * Return: 0 on success
 */
 
-char *getpath(char *input)
+char *getpath(char *line)
 {
 	char *Path, *Path_copy, *token, full_path[1024], *result;
 
@@ -15,6 +15,7 @@ char *getpath(char *input)
 	if (Path == NULL)
 	{
 		perror("getenv");
+		free(line);
 		return (NULL); /* Change return type to NULL */
 	}
 	Path_copy = strdup(Path);
@@ -22,6 +23,7 @@ char *getpath(char *input)
 	if (Path_copy == NULL)
 	{
 		perror("strdup");
+		free(line);
 		return (NULL); /* Change return type to NULL */
 	}
 
@@ -29,7 +31,7 @@ char *getpath(char *input)
 
 	while (token != NULL)
 	{
-		sprintf(full_path, "%s/%s", token, input);
+		sprintf(full_path, "%s/%s", token, line);
 
 		if (access(full_path, F_OK | X_OK) == 0)
 		{

@@ -7,12 +7,12 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <sys/types.h>
-#include <ctype.h>
-#include <signal.h>
 
-char *getpath(char *input);
+char *getpath(char *line);
 int tokenize_input(char *line, char **array);
 int execute_command(char *full_path, char **array);
 int handle_input(char *line, char **array, char **full_path);
 void free_memory(char **array, int index);
+int _strcmp(char *s1, char *s2);
+
 #endif
