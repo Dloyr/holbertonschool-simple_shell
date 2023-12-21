@@ -26,13 +26,16 @@ int main(int argc, char **argv)
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 
-		getline(&line, &len, stdin); /* get user input */
+		if (getline(&line, &len, stdin) == - 1)
+		{
+			perror("getline");/* get user input */
+		} 
 
 		array = malloc(sizeof(char *) * 1024);
 		if (array == NULL)
 		{
 			perror("malloc");
-			return (1);
+			return (EXIT_FAILURE);
 		}
 
 		if (strcmp(line, "exit\n") == 0)
@@ -44,7 +47,7 @@ int main(int argc, char **argv)
 		index = handle_input(line, array, &full_path);
 
 		free_memory(array, index);
+		free(line);
 	}
-	free(line);
 	return (0);
 }

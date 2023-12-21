@@ -6,7 +6,7 @@
 * Return: 0 on success
 */
 
-char *getpath(char *input)
+char *getpath(char *line)
 {
 	char *Path, *Path_copy, *token, full_path[1024], *result;
 
@@ -29,7 +29,7 @@ char *getpath(char *input)
 
 	while (token != NULL)
 	{
-		sprintf(full_path, "%s/%s", token, input);
+		sprintf(full_path, "%s/%s", token, line);
 
 		if (access(full_path, F_OK | X_OK) == 0)
 		{

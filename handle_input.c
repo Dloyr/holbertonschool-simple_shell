@@ -27,7 +27,7 @@ int handle_input(char *line, char **array, char **full_path)
 	if (*full_path == NULL)
 	{
 		fprintf(stderr, "Command not found: %s\n", array[0]);
-		return (index);
+		return (-1);
 	}
 
 	if (execute_command(*full_path, array) != 0)
