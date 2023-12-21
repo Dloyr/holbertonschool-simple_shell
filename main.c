@@ -29,8 +29,7 @@ int main(int argc, char **argv)
 		if (getline(&line, &len, stdin) == - 1)
 		{
 			perror("getline");/* get user input */
-		} 
-
+		}
 		array = malloc(sizeof(char *) * 1024);
 		if (array == NULL)
 		{
@@ -40,14 +39,12 @@ int main(int argc, char **argv)
 
 		if (strcmp(line, "exit\n") == 0)
 		{
-			free(line);
 			free_memory(array, 0);
+			free(line);
 			return (0);
 		}
 		index = handle_input(line, array, &full_path);
-
 		free_memory(array, index);
-		free(line);
 	}
 	return (0);
 }
