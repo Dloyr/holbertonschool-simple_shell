@@ -1,20 +1,6 @@
 #include "main.h"
 
 /**
-* cleanup - free the memory
-* @line: store user input
-* @array: store tokens
-* @full_path: store full path of command
-*/
-
-void cleanup(char *line, char **array, char *full_path)
-{
-	free(line);
-	free(full_path);
-	free(array);
-}
-
-/**
 * main - Shell
 * @argc: Number of arguments
 * @argv: Arguments
@@ -23,7 +9,6 @@ void cleanup(char *line, char **array, char *full_path)
 
 int main(int argc, char **argv)
 {
-
 	int index;
 	char *line = NULL; /* store user input */
 	char **array = NULL; /* store tokens */
@@ -38,23 +23,28 @@ int main(int argc, char **argv)
 
 	while (1)
 	{
-		printf("$ ");
+		if (isatty(STDIN_FILENO))
+			printf("$ ");
+
 		getline(&line, &len, stdin); /* get user input */
 
 		array = malloc(sizeof(char *) * 1024);
 		if (array == NULL)
 		{
 			perror("malloc");
-			exit(1);
+			return (1);
 		}
 
 		if (strcmp(line, "exit\n") == 0)
 		{
-			cleanup(line, array, full_path);
-			exit(0);
+			free(line);
+			free_memory(array, 0);
+			return (0);
 		}
-		handle_input(line, array, full_path);
+		index = handle_input(line, array, &full_path);
+
+		free_memory(array, index);
 	}
-	cleanup(line, array, full_path);
-	return (index);
-	}
+	free(line);
+	return (0);
+}

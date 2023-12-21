@@ -12,7 +12,13 @@ char *getpath(char *input)
 
 	Path = getenv("PATH");
 
+	if (Path == NULL)
+	{
+		perror("getenv");
+		return (NULL); /* Change return type to NULL */
+	}
 	Path_copy = strdup(Path);
+
 	if (Path_copy == NULL)
 	{
 		perror("strdup");
