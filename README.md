@@ -1,4 +1,3 @@
-
 # Holberton School: Simple-Shell 💻
 
 # Description
@@ -91,12 +90,14 @@ You can check memory leaks using the following command :
 
 ``valgrind ./hsh``
 
-``valgrind --leak-check=full \
+```
+valgrind --leak-check=full \
          --show-leak-kinds=all \
          --track-origins=yes \
          --verbose \
          --log-file=valgrind-out.txt \
-         ./hsh ``
+         ./hsh
+```
 
 # Testing the program
 ## Interactive mode 
