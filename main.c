@@ -26,25 +26,26 @@ int main(int argc, char **argv)
 		if (isatty(STDIN_FILENO))
 			printf("$ ");
 
-		if (getline(&line, &len, stdin) == - 1)
-		{
-			perror("getline");/* get user input */
-		}
+		getline(&line, &len, stdin); /* get user input */
+
 		array = malloc(sizeof(char *) * 1024);
 		if (array == NULL)
 		{
 			perror("malloc");
-			return (EXIT_FAILURE);
+			free(line);
+			return (1);
 		}
 
 		if (strcmp(line, "exit\n") == 0)
 		{
-			free_memory(array, 0);
 			free(line);
+			free_memory(array, 0);
 			return (0);
 		}
 		index = handle_input(line, array, &full_path);
+		free(full_path);
 		free_memory(array, index);
 	}
+	free(line);
 	return (0);
 }
