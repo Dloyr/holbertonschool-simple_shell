@@ -2,7 +2,7 @@
 
 /**
 * getpath - get the path
-* @input: input
+* @line: input
 * Return: 0 on success
 */
 
@@ -15,6 +15,7 @@ char *getpath(char *line)
 	if (Path == NULL)
 	{
 		perror("getenv");
+		free(line);
 		return (NULL); /* Change return type to NULL */
 	}
 	Path_copy = strdup(Path);
@@ -22,6 +23,7 @@ char *getpath(char *line)
 	if (Path_copy == NULL)
 	{
 		perror("strdup");
+		free(line);
 		return (NULL); /* Change return type to NULL */
 	}
 
