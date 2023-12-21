@@ -65,9 +65,34 @@ A shell is a command-line interface that allows users to interact with an operat
 | ----------- | ----------- |
 | .gitignore      | File used for ignore some file when whe push into GitHub.       |
 | main.h   | Header File. Lists the standard libraries used and integrates the prototypes we need to run the program properly. If one. If a necessary library or a used prototyp is missing in the file, the program will not be able to compile and therefore will not be executed.        |
-| main.c | Creates an infinit loop which displays a prompt and reads the input typed by the user.The shell will behave differently depending on what the user types: exit: the shell exits. An existing command (e.g. ls, pwd), the shell executes it and returns to the beginning of the loop. The path of an existing command (e.g. /bin/ls), the shell executes the command and returns to the start of the loop. The command does not exist, the shell displays an error message |
-| execute command.c | Text |
-| free.c | Text | 
-| getPATH.c | Text |
-| handle_input.c | Text |
-| tokenize_input.c | Text |
+| main.c | The `main` function initializes the shell environment. It establishes an infinite loop that presents a prompt, captures user input, and directs the shell's behavior accordingly: if the user types "exit," the shell terminates; for an existing command (e.g., ls, pwd), the shell executes it and resumes the loop; when entering the path of an existing command (e.g., /bin/ls), the shell runs the command and restarts the loop; in the case of a non-existent command, the shell prompts an error message.|
+| execute command.c | Responsible for running a given command in a child process. The function takes the full path of the command and an array containing the command and its arguments. It returns 0 on success and 1 on failure.|
+| free.c | Freeing the memory allocated for an array. The function takes the array and its index as parameters. This function facilitates the proper deallocation of memory for arrays, ensuring that allocated memory is released to prevent memory leaks in the shell program. | 
+| getPATH.c | This function obtains the full path of a command based on the user's input. The function takes the input command as a parameter and returns the full path on success or NULL on failure. |
+| handle_input.c | Responsible for processing user input, tokenizing it, obtaining the full path of the command, and executing the command. The function takes the user input (line), an array to store tokens (array), and a pointer to store the full path of the command (full_path). It returns the index. |
+| tokenize_input.c | This function facilitates the tokenization of user input, ensuring that each token is stored in the provided array. The return type indicates the number of tokens processed during the tokenization process. |
+
+# Compilation ⚙️
+
+You can compile your program using the following command :
+
+``gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh``
+
+# Man page
+
+You can access at our man page using the following command :
+
+``man ./man_1_simple_shell.1``
+
+# Memory check
+
+You can check memory leaks using the following command :
+
+``valgrind ./hsh``
+
+``valgrind --leak-check=full \
+         --show-leak-kinds=all \
+         --track-origins=yes \
+         --verbose \
+         --log-file=valgrind-out.txt \
+         ./hsh ``
