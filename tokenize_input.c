@@ -16,14 +16,17 @@ int tokenize_input(char *line, char **array)
 	/* store tokens in array */
 	while (token != NULL)
 	{
+
 		array[index] = strdup(token);
 		if (array[index] == NULL)
 		{
 			perror("strdup");
+			free(line);
+			free(token);
 			exit(EXIT_FAILURE);
 		}
-		token = strtok(NULL, " \n");
 		index++;
+		token = strtok(NULL, " \n");
 	}
 	return (index);
 }
