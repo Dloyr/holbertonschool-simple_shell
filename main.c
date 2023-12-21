@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 			return (1);
 		}
 
-		if (strcmp(line, "exit\n") == 0)
+		if (_strcmp(line, "exit\n") == 0)
 		{
 			free(line);
 			free_memory(array, 0);
