@@ -82,7 +82,7 @@ You can compile your program using the following command :
 
 You can access at our man page using the following command :
 
-``man ./man_1_simple_shell.1``
+``man ./man_1_simple_shell``
 
 # Memory check
 
