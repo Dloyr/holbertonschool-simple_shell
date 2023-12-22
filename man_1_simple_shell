@@ -84,37 +84,27 @@ The following builtin command is supported:
 - exits the program
 .RE
 
-Example of commands:
-
-.RS
-.br
-PWD=/root
-.br
-LOGNAME=root
-.br
-HOME=/root
-.br
-LANG=C.UTF-8
-.br
-LESSOPEN=| /usr/bin/lesspipe %s
-.br
-USER=root
-.br
-SHLVL=1
-.br
-XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-.br
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-.br
-:/usr/games:/usr/local/games:/snap/bin
-.br
-MAIL=/var/mail/root
-.br
-_=/usr/bin/env
-($)
-.br
-\&($)
-.RE
+.SH EXAMPLES OF COMMANDS
+.PP
+exit - Function that exits the Simple Shell.
+.PP
+cat - Allowing to concatenate files as well as to display their contents on the standard output.
+.PP
+less	- Allowing to view a text file.
+.PP
+touch - Create a new File.
+.PP
+mkdir - Create a new Directory.
+.PP
+ls - The ls command displays the contents of the current Directory.
+.PP
+cp - Allowing to copy Files and Directories.
+.PP
+mv - Allows to move a File, Directory or any tree on Linux.
+.PP
+pwd - Allows to display the path of the current directory.
+.PP
+grep - Allows you to search for a file or a set of files based on an expression contained in the file or files.
 
 .SH EXIT
 \fBhsh\fR returns the exit status of the last command executed, unless a syntax error occurs, with zero indicating success and non-zero indicating failure.
